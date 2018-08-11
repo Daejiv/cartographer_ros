@@ -16,7 +16,10 @@ cmake_minimum_required(VERSION 2.8.12)  # Ships with Ubuntu 14.04 (Trusty)
 
 project(cartographer_rviz)
 
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules)
+
 set(PACKAGE_DEPENDENCIES
+  cartographer
   cartographer_ros
   cartographer_ros_msgs
   eigen_conversions
@@ -27,7 +30,7 @@ set(PACKAGE_DEPENDENCIES
 )
 
 find_package(cartographer REQUIRED)
-include("${CARTOGRAPHER_CMAKE_DIR}/functions.cmake")
+#include("${CARTOGRAPHER_CMAKE_DIR}/functions.cmake")
 google_initialize_cartographer_project()
 
 find_package(Abseil REQUIRED)
